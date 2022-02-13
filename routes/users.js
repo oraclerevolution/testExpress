@@ -48,7 +48,6 @@ router.post('/auth', function(request, response) {
 			// If the account exists
 			if (results.length > 0) {
 				// Redirect to home page
-        console.log(results);
 				response.json(results)
 			} else {
         response.json({
