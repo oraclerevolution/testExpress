@@ -1,5 +1,4 @@
 var express = require('express')
-const res = require('express/lib/response')
 var router = express.Router()
 var db = require('../lib/db')
 
@@ -104,7 +103,6 @@ router.post('/movie/update/(:id)', function(req,res,next){
             }
         })
     }
-
 })
 
 //delete a movie
@@ -115,13 +113,14 @@ router.post('movie/delete/(:id)', function(req, res, next) {
     let errors = false;
 
     if (!errors) {
-        db.query(`UPDATE movies SET status = ${number} WHERE id = ${id}`, function(err, result){
+        db.query("UPDATE movies SET status = ? WHERE id = ?", [number, id], function(err, result){
             //if (err) throw err
             if (err) {
                 res.render('error',{message: err})
             } else {
                 res.json({
-                message:"video supprimée"
+                message:"video supprimée",
+                status: 200
             })
             }
         })
