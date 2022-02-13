@@ -7,8 +7,6 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var moviesRouter = require('./routes/movies');
-var filmsRouter = require('./routes/films');
-var booksRouter = require('./routes/books');
 var cors = require('cors')
 
 
