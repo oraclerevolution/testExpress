@@ -26,7 +26,7 @@ router.post('/signup', function(req, res){
         db.query("INSERT INTO users SET ?", form_data, function(err, result){
             //if (err) throw err
             if (err) {
-                res.render('error',{message: err})
+                res.json({message: err})
             } else {
                 res.json(form_data)
             }
