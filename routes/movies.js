@@ -51,7 +51,7 @@ router.get('/movie/:id', function(req,res,next){
             res.render('error', {message: "Movie does not exist"})
             //if movies found
         }else{
-            res.json(rows[0])
+            res.json(rows)
         }
     })
 })
