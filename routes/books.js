@@ -1,6 +1,5 @@
 var express = require("express");
 const moment = require("moment");
-const res = require("express/lib/response");
 var router = express.Router();
 var db = require("../lib/db");
 
@@ -106,25 +105,3 @@ router.get("/book-movie-users/:id/:id_user", function (req, res, next) {
 
 
 //delete a booked movie
-router.post('book/delete/(:id)', function(req, res, next) {
-
-    let id = req.params.id;
-    let number = 1
-    let errors = false;
-
-    if (!errors) {
-        db.query("UPDATE movies SET status = ? WHERE id = ?", [number, id], function(err, result){
-            //if (err) throw err
-            if (err) {
-                res.render('error',{message: err})
-            } else {
-                res.json({
-                message:"video supprimée",
-                status: 200
-            })
-            }
-        })
-
-    }
-
-})
